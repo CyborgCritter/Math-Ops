@@ -93,12 +93,13 @@ namespace Trimmer___CSC202_SP14022___Math_Ops
 
 
             // Display the sum, average, product, smallest, and largest.
-            Console.WriteLine("\n\nYou entered the numbers {0}, {1}, and {2}.\n", num1, num2, num3);
-            Console.WriteLine("The sum is               {0}", sum);
-            Console.WriteLine("The average is           {0}", avg);
-            Console.WriteLine("The product is           {0}", product);
-            Console.WriteLine("The smallest number is   {0}", littleNum);
-            Console.WriteLine("The largest number is    {0}", bigNum);
+            ClearAndPrintHeader();
+            Console.WriteLine("You entered the numbers {0}, {1}, and {2}.\n", num1, num2, num3);
+            Console.WriteLine("\n\nThe sum is\t\t{0}", sum);
+            Console.WriteLine("The average is\t\t{0}", avg);
+            Console.WriteLine("The product is\t\t{0}", product);
+            Console.WriteLine("The smallest number is\t{0}", littleNum);
+            Console.WriteLine("The largest number is\t{0}", bigNum);
 
             // Pause the consol so the user can read the input before it closes.
             Console.Write("\nPress any key to continue... ");
@@ -110,14 +111,31 @@ namespace Trimmer___CSC202_SP14022___Math_Ops
             // Method to get the integer input
 
             int tempNum = 0;
-            Console.Write("\nEnter the {0} integer: ", cardinalToOrdinal[numOrder]);
+            ClearAndPrintHeader();
+            Console.Write("Enter the {0} integer: ", cardinalToOrdinal[numOrder]);
             // Error check the input, and if input is incorrect have the user re-enter.
             while (!int.TryParse(Console.ReadLine(), out tempNum))
             {
-                Console.WriteLine("\nPlease enter only an integer value.");
-                Console.Write("\nEnter the {0} integer: ", cardinalToOrdinal[numOrder]);
+                ClearAndPrintHeader();
+                Console.WriteLine("Please enter only an integer value.");
+                Console.Write("Enter the {0} integer: ", cardinalToOrdinal[numOrder]);
             }
+
             return tempNum;
+        }
+
+        static void ClearAndPrintHeader()
+        {
+            Console.Clear();
+
+            // Print my Header.
+            Console.WriteLine("\n{0}{0}", new string('#', 12));
+            Console.WriteLine("##{0}{0}##", new string(' ', 10));
+            Console.WriteLine("##{0}Justin Trimmer{0}##", new string(' ', 3));
+            Console.WriteLine("##{0}CSC202{0}##", new String(' ', 7));
+            Console.WriteLine("##{0}Math Ops{0}##", new string(' ', 6));
+            Console.WriteLine("##{0}{0}##", new string(' ', 10));
+            Console.WriteLine("{0}{0}\n\n", new string('#', 12));
         }
     }
 }
